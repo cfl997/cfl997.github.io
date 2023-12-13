@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Caofulei</title>
+    <link>http://cfl997.github.io/categories/blog/</link>
+    <description>Recent content in Blog on Caofulei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>文档属性</title>
+      <link>http://cfl997.github.io/2023/12/13/</link>
+      <pubDate>Wed, 13 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://cfl997.github.io/2023/12/13/</guid>
+      <description>#文档属性 layout：指定了文档的布局。 title：指定了文档的标题。 subtitle：指定了文档的副标题。 date：指定了文档的日期。 a</description>
+    </item>
+    
+  </channel>
+</rss>
