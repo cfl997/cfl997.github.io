@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="Shader" />
+    <meta property="og:title" content="Shader" />
+    <meta property="twitter:title" content="Shader" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="曹福磊, Caofulei, Caofulei, 曹福磊的博客, 曹福磊的网络日志, Caofulei Blog, 博客, 个人网站, 互联网, Web, Qt, GoogleTest, 渲染, c&#43;&#43;, OpenGL">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Searches | 曹福磊 | Caofulei Blog</title>
+    <title>Shader | 曹福磊 | Caofulei Blog</title>
 
-    <link rel="canonical" href="/search/">
+    <link rel="canonical" href="/tags/shader/">
 
     
     
@@ -171,7 +171,8 @@
 
 
 
-<div class="container">
+  
+<div data-pagefind-ignore="all" class="container">
     <div class="row">
         
         
@@ -182,117 +183,42 @@
             col-xs-12
             post-container
         ">
-        
             
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+<div data-pagefind-ignore="all">
 
-<div id="search-searchbar"></div>
- <div class="post-list" id="search-hits">
- </div>
-
-<script>
-const search = instantsearch({
-  appId: '',
-  indexName: '',
-  apiKey: ''
-});
-
-const hitTemplate = function(hit) {
-
-
-  let date = '';
-  if (hit.date) {
-    date = moment.unix(hit.date).format('MMM D, YYYY');
-  }
-  let url = `${hit.url}#${hit.anchor}`;
-  const title = hit._highlightResult.title.value;
-
-  let breadcrumbs = '';
-  if (hit._highlightResult.headings) {
-    breadcrumbs = hit._highlightResult.headings.map(match => {
-      return `<span class="post-breadcrumb">${match.value}</span>`
-    }).join(' > ')
-  }
-
-  let content = "" ; 
-  if (hit._highlightResult.content){
-      content = hit._highlightResult.content.value;
-  }
-  else{
-      content = hit.summary;
-  }
-
-
-  return `
-    <div class="post-item">
-      <span class="post-meta">${date}</span>
-      <h2><a class="post-link" href="${url}">${title}</a></h2>
-      <a href="${url}" class="post-breadcrumbs">${breadcrumbs}</a>
-      <div class="post-snippet">${content}</div>
-    </div>
-  `;
-}
-
-
-search.addWidget(
-  instantsearch.widgets.searchBox({
-    container: '#search-searchbar',
-    placeholder: 'Search into posts...',
-    poweredBy: true // This is required if you're on the free Community plan
-  })
-);
-
-search.addWidget(
-  instantsearch.widgets.hits({
-    container: '#search-hits',
-    templates: {
-      item: hitTemplate
-    }
-  })
-);
-
-search.start();
-</script>
-
-<style>
-.ais-search-box {
-  max-width: 100%;
-  margin-bottom: 15px;
-}
-.post-item {
-  margin-bottom: 30px;
-}
-.post-link .ais-Highlight {
-  color: #111;
-  font-style: normal;
-  text-decoration: underline;
-}
-.post-breadcrumbs {
-  color: #424242;
-  display: block;
-}
-.post-breadcrumb {
-  font-size: 18px;
-  color: #424242;
-}
-.post-breadcrumb .ais-Highlight {
-  font-weight: bold;
-  font-style: normal;
-}
-.post-snippet .ais-Highlight {
-  color: #2a7ae2;
-  font-style: normal;
-  font-weight: bold;
-}
-.post-snippet img {
-  display: none;
-}
-</style>
-
+<div class="post-preview">
+    <a href="http://cfl997.github.io/2023/12/06/">
+        <h2 class="post-title">
+            Mosaic changing by time
+        </h2>
+	
+        <h3 class="post-subtitle">
+            20231206-Shader-Mosaic-马赛克
+        </h3>
+	
+        <div class="post-content-preview">
+	
+            Mosaic By Time 随着时间更新马赛克的大小 ShaderToy https://www.shadertoy.com/view/DlKBRh Code： /* https://www.shadertoy.com/view/mlVBRh by cfl997 20231206 */ // 定义一个变量 Square，表示一个正方形的尺寸 float Square = 80.0; // 主函数，负责计算每个像素的
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by 曹福磊 on Wednesday, December 6, 2023
         
+        
+    
+    </p>
+
+</div>
+<hr>
+
+</div>
+
+            
+
+
+
        	</div>
         
 
@@ -428,6 +354,8 @@ search.start();
 
 
 
+
+
 <footer>
     <div class="container">
         <div class="row">
@@ -492,7 +420,7 @@ search.start();
             
            
                    <li>
-                       <a href='/search/index.xml' rel="alternate" type="application/rss+xml" title="Caofulei" >
+                       <a href='/tags/shader/index.xml' rel="alternate" type="application/rss+xml" title="Caofulei" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

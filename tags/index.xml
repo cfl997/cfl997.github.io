@@ -6,14 +6,24 @@
     <description>Recent content in Tags on Caofulei</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Dec 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://cfl997.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blog</title>
       <link>http://cfl997.github.io/tags/blog/</link>
       <pubDate>Wed, 13 Dec 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://cfl997.github.io/tags/blog/</guid>
       <description></description>
     </item>
+    
+    <item>
+      <title>Shader</title>
+      <link>http://cfl997.github.io/tags/shader/</link>
+      <pubDate>Wed, 06 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://cfl997.github.io/tags/shader/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
