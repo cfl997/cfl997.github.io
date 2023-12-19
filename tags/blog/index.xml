@@ -6,13 +6,22 @@
     <description>Recent content in Blog on Caofulei</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NVIDIA OpenGL FramBuffer Bug-glCreateFramebuffers</title>
+      <link>http://cfl997.github.io/2023/12/19/VNDIA/</link>
+      <pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://cfl997.github.io/2023/12/19/VNDIA/</guid>
+      <description>NVIDIA 的OpenGL FramBuffer Bug-glCreateFramebuffers ​ 在做OpenGL开发的时候，遇到了NVIDIA写的bug。 并进行了解决，在NVIDIA官网上进行了反馈。 Framebuffer incomplete when attaching color buffers of</description>
+    </item>
+    
     <item>
       <title>文档属性</title>
-      <link>http://cfl997.github.io/2023/12/13/</link>
+      <link>http://cfl997.github.io/2023/12/13/document%20attribute/</link>
       <pubDate>Wed, 13 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://cfl997.github.io/2023/12/13/</guid>
+      <guid>http://cfl997.github.io/2023/12/13/document%20attribute/</guid>
       <description>#文档属性 layout：指定了文档的布局。 title：指定了文档的标题。 subtitle：指定了文档的副标题。 date：指定了文档的日期。 a</description>
     </item>
     
@@ -27,10 +36,10 @@
     
     <item>
       <title>Mosaic changing by time</title>
-      <link>http://cfl997.github.io/2023/12/06/</link>
+      <link>http://cfl997.github.io/2023/12/06/mosaic/</link>
       <pubDate>Wed, 06 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://cfl997.github.io/2023/12/06/</guid>
+      <guid>http://cfl997.github.io/2023/12/06/mosaic/</guid>
       <description>Mosaic By Time 随着时间更新马赛克的大小 ShaderToy https://www.shadertoy.com/view/DlKBRh Code： /* https://www.shadertoy.com/view/DlKBRh Blog：https://blog.lovezjj.cn by cfl997 20231206 */ // 定义一个变量 Square，</description>
     </item>
     

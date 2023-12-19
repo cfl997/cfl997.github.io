@@ -10,14 +10,14 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="http://cfl997.github.io//img/home-bg-jeep.jpg">
-    <meta property="twitter:image" content="http://cfl997.github.io//img/home-bg-jeep.jpg" />
+    <meta property="og:image" content="/img/2023/20231206/20231206-Shader-Mosaic.png">
+    <meta property="twitter:image" content="/img/2023/20231206/20231206-Shader-Mosaic.png" />
     
 
     
-    <meta name="title" content="Welcome to CaoFulei Blog" />
-    <meta property="og:title" content="Welcome to CaoFulei Blog" />
-    <meta property="twitter:title" content="Welcome to CaoFulei Blog" />
+    <meta name="title" content="Mosaic changing by time" />
+    <meta property="og:title" content="Mosaic changing by time" />
+    <meta property="twitter:title" content="Mosaic changing by time" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="曹福磊, Caofulei, Caofulei, 曹福磊的博客, 曹福磊的网络日志, Caofulei Blog, 博客, 个人网站, 互联网, Web, Qt, GoogleTest, 渲染, c&#43;&#43;, OpenGL">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Welcome to CaoFulei Blog | 曹福磊 | Caofulei Blog</title>
+    <title>Mosaic changing by time | 曹福磊 | Caofulei Blog</title>
 
-    <link rel="canonical" href="/2023/12/11/hello-world/">
+    <link rel="canonical" href="/2023/12/06/mosaic/">
 
     
     
@@ -158,7 +158,7 @@
 
 <style type="text/css">
     header.intro-header {
-        background-image: url('/img/home-bg-jeep.jpg')
+        background-image: url('/img/2023/20231206/20231206-Shader-Mosaic.png')
     }
 </style>
 
@@ -170,9 +170,21 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                        <a class="tag" href="/tags/shader" title="Shader">
+                            Shader
+                        </a>
+                        
+                        <a class="tag" href="/tags/blog" title="Blog">
+                            Blog
+                        </a>
+                        
+                        <a class="tag" href="/tags/opengl" title="OpenGL">
+                            OpenGL
+                        </a>
+                        
                     </div>
-                    <h1>Welcome to CaoFulei Blog</h1>
-                    <h2 class="subheading">Hello World, Hello Blog</h2>
+                    <h1>Mosaic changing by time</h1>
+                    <h2 class="subheading">20231206-Shader-Mosaic-马赛克</h2>
                     <span class="meta">
                         
                             Posted by 
@@ -180,7 +192,7 @@
                                 曹福磊
                              
                             on 
-                            Monday, December 11, 2023
+                            Wednesday, December 6, 2023
                             
                             
                             
@@ -206,10 +218,50 @@
                 post-container">
 
                 
-                <blockquote>
-<p>“Yeah It&rsquo;s on. ”</p>
-</blockquote>
-<h2 id="hello-world">Hello World!</h2>
+                <h2 id="mosaic-by-time">Mosaic By Time</h2>
+<p>随着时间更新马赛克的大小</p>
+<p>ShaderToy
+<a href="https://www.shadertoy.com/view/DlKBRh">https://www.shadertoy.com/view/DlKBRh</a></p>
+<p>
+  <img src="/img/2023/20231206/20231206-Shader-Mosaic.png" alt="">
+
+</p>
+<p>Code：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#6272a4">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">https://www.shadertoy.com/view/DlKBRh
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">Blog：https://blog.lovezjj.cn
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">by cfl997 20231206
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// 定义一个变量 Square，表示一个正方形的尺寸
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd">float</span> Square <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">80.0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// 主函数，负责计算每个像素的颜色值
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">mainImage</span>(out vec4 fragColor, in vec2 fragCoord)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 计算纹理坐标（uv坐标），将屏幕像素坐标转换为[0,1]范围内的坐标
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    vec2 uv <span style="color:#ff79c6">=</span> fragCoord <span style="color:#ff79c6">/</span> iResolution.xy;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 计算时间（以秒为单位），并对其取模，使其在一个固定的范围内循环
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">float</span> time <span style="color:#ff79c6">=</span> mod(iTime, <span style="color:#bd93f9">10.0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 计算一个计数值，用时间乘以Square变量
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">float</span> count <span style="color:#ff79c6">=</span> time <span style="color:#ff79c6">*</span> Square;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 将uv坐标乘以count，然后取整数部分，再除以count，实现对uv坐标的分块效果
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    uv <span style="color:#ff79c6">=</span> floor(uv <span style="color:#ff79c6">*</span> count) <span style="color:#ff79c6">/</span> count;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 从纹理中获取颜色值，并赋值给fragColor
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    fragColor <span style="color:#ff79c6">=</span> texture(iChannel0, uv);
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 另一种获取颜色值的方式，使用textureLod函数，并指定mipmap级别为0.0f
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// fragColor = textureLod(iChannel0, uv, 0.0f);
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><p>If the channel filter is set to NEAREST or LINEAR, texture can be used directly, otherwise textureLod needs to be used. Otherwise there will be a border in the view.</p>
+<p>如果通道过滤设置为：最近点(NEAREST)或线性(LINEAR)，那么可以直接使用texture，否则需要使用textureLod。不然视图上会有边框。</p>
+<p>
+  <img src="/img/2023/20231206/20231206-Shader-Mosaic-border.png" alt="">
+
+</p>
 
 
                 
@@ -258,14 +310,9 @@
                 <hr>
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2023/12/07/Gray/" data-toggle="tooltip" data-placement="top" title="Calculation method of gray value">&larr;
-                            Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2023/12/13/document%20attribute/" data-toggle="tooltip" data-placement="top" title="文档属性">Next
+                        <a href="/2023/12/07/Gray/" data-toggle="tooltip" data-placement="top" title="Calculation method of gray value">Next
                             Post &rarr;</a>
                     </li>
                     
