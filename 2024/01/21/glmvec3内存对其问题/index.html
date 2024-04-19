@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Caofulei">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="/img/2023/OpenGL.png">
+    <meta property="twitter:image" content="/img/2023/OpenGL.png" />
+    
+
+    
+    <meta name="title" content="glmvec3内存对其问题" />
+    <meta property="og:title" content="glmvec3内存对其问题" />
+    <meta property="twitter:title" content="glmvec3内存对其问题" />
+    
+
+    
+    <meta name="description" content="曹福磊，程序员, 书法爱好者，生活探险家 | 这里是 曹福磊 的博客，与你一起发现更大的世界。">
+    <meta property="og:description" content="曹福磊，程序员, 书法爱好者，生活探险家 | 这里是 曹福磊 的博客，与你一起发现更大的世界。" />
+    <meta property="twitter:description" content="曹福磊，程序员, 书法爱好者，生活探险家 | 这里是 曹福磊 的博客，与你一起发现更大的世界。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="曹福磊, Caofulei, Caofulei, 曹福磊的博客, 曹福磊的网络日志, Caofulei Blog, 博客, 个人网站, 互联网, Web, Qt, GoogleTest, 渲染, c&#43;&#43;, OpenGL">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>glmvec3内存对其问题 | 曹福磊 | Caofulei Blog</title>
+
+    <link rel="canonical" href="/2024/01/21/glmvec3%E5%86%85%E5%AD%98%E5%AF%B9%E5%85%B6%E9%97%AE%E9%A2%98/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Caofulei</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/blog/">blog</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/archive//">ARCHIVE</a></li>
+                    
+                        <li><a href="/notes//">NOTES</a></li>
+                    
+                        <li><a href="/about//">ABOUT</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/2023/OpenGL.png')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/opengl" title="OpenGL">
+                            OpenGL
+                        </a>
+                        
+                        <a class="tag" href="/tags/glm" title="glm">
+                            glm
+                        </a>
+                        
+                    </div>
+                    <h1>glmvec3内存对其问题</h1>
+                    <h2 class="subheading">2024-01-21 glm::vec3 放入结构体中的对其问题</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                CaoFulei
+                             
+                            on 
+                            Sunday, January 21, 2024
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h3 id="介绍">介绍</h3>
+<p>在OpenGL编程中，与顶点数据的交互是非常常见的操作。在C++中，通常会使用GLM库提供的数据结构，如glm::vec3，来表示顶点数据。然而，内存对齐问题可能会影响到这种交互，特别是在涉及到结构体的内存布局时。本教程将探讨在OpenGL中如何处理顶点数据，并对比在加入GLM宏定义和不加入GLM宏定义的情况下的内存大小差异，同时提供相应的Shader代码。</p>
+<p>当你在使用GLM库时，可能会遇到内存对齐的问题，特别是在与其他库或系统进行交互时。GLM提供了一个宏定义<code>GLM_FORCE_ALIGNED</code>，它可以强制GLM库使用对齐内存分配。在这个教程中，我们将讨论如何使用<code>GLM_FORCE_ALIGNED</code>宏，并将其应用到我们之前的示例中。</p>
+<h3 id="glm_force_aligned宏的作用">GLM_FORCE_ALIGNED宏的作用</h3>
+<p><code>GLM_FORCE_ALIGNED</code>宏可以强制GLM库使用对齐内存分配，以确保GLM的向量和矩阵类型与OpenGL兼容。通过使用对齐内存分配，可以避免由于内存对齐不一致而导致的问题，特别是在与底层图形库（如OpenGL）进行交互时。</p>
+<h3 id="将glm_force_aligned宏应用到示例中">将GLM_FORCE_ALIGNED宏应用到示例中</h3>
+<p>首先，在包含GLM头文件之前定义<code>GLM_FORCE_ALIGNED</code>宏。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">#define GLM_FORCE_ALIGNED
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;glm/glm.hpp&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;glm/gtc/matrix_transform.hpp&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;glm/gtc/type_ptr.hpp&gt;</span><span style="color:#ff79c6">
+</span></span></span></code></pre></div><p>这将强制GLM库使用对齐内存分配。</p>
+<p>接下来，我们将GLM的向量和矩阵类型应用到我们之前的顶点数据结构中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">Vertex</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    glm<span style="color:#ff79c6">::</span>vec3 vertex;
+</span></span><span style="display:flex;"><span>    DWORD color;
+</span></span><span style="display:flex;"><span>    glm<span style="color:#ff79c6">::</span>vec2 tex;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>现在，我们的顶点数据结构中使用了GLM的向量类型，并且由于我们定义了<code>GLM_FORCE_ALIGNED</code>宏，GLM将确保这些向量类型使用了对齐内存分配。</p>
+<h3 id="不加宏定义的情况">不加宏定义的情况</h3>
+<p>首先，我们来看看在不加入GLM宏定义的情况下，顶点数据结构的内存大小是多少。假设我们有以下的顶点数据结构：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">Vertex</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    glm<span style="color:#ff79c6">::</span>vec3 vertex;
+</span></span><span style="display:flex;"><span>    DWORD color;
+</span></span><span style="display:flex;"><span>    glm<span style="color:#ff79c6">::</span>vec2 tex;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>接下来，我们可以使用<code>sizeof</code>操作符来获取顶点数据结构的内存大小：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>size_t vertexSize <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">sizeof</span>(Vertex);
+</span></span></code></pre></div><p>在这个例子中，<code>vertexSize</code>的值是24字节。这是因为<code>glm::vec3</code>和<code>glm::vec2</code>分别占用12字节和8字节，<code>DWORD</code>占用4字节，所以总共是24字节。</p>
+<p>然后，我们初始化一组顶点数据：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> VertexArray <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>vector<span style="color:#ff79c6">&lt;</span>Vertex<span style="color:#ff79c6">&gt;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>VertexArray vertices <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>    {{<span style="color:#ff79c6">-</span><span style="color:#bd93f9">0.5f</span>, <span style="color:#ff79c6">-</span><span style="color:#bd93f9">0.5f</span>, <span style="color:#bd93f9">0.0f</span>}, <span style="color:#bd93f9">0xFF0000</span>, {<span style="color:#bd93f9">0.0f</span>, <span style="color:#bd93f9">0.0f</span>}},
+</span></span><span style="display:flex;"><span>    {{<span style="color:#bd93f9">0.5f</span>, <span style="color:#ff79c6">-</span><span style="color:#bd93f9">0.5f</span>, <span style="color:#bd93f9">0.0f</span>}, <span style="color:#bd93f9">0x00FF00</span>, {<span style="color:#bd93f9">1.0f</span>, <span style="color:#bd93f9">0.0f</span>}},
+</span></span><span style="display:flex;"><span>    {{<span style="color:#bd93f9">0.0f</span>, <span style="color:#bd93f9">0.5f</span>, <span style="color:#bd93f9">0.0f</span>}, <span style="color:#bd93f9">0x0000FF</span>, {<span style="color:#bd93f9">0.5f</span>, <span style="color:#bd93f9">1.0f</span>}}
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// 创建顶点缓冲对象
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>GLuint VBO;
+</span></span><span style="display:flex;"><span>glGenBuffers(<span style="color:#bd93f9">1</span>, <span style="color:#ff79c6">&amp;</span>VBO);
+</span></span><span style="display:flex;"><span>glBindBuffer(GL_ARRAY_BUFFER, VBO);
+</span></span><span style="display:flex;"><span>glBufferData(GL_ARRAY_BUFFER, vertices.size() <span style="color:#ff79c6">*</span> <span style="color:#ff79c6">sizeof</span>(Vertex), <span style="color:#ff79c6">&amp;</span>vertices[<span style="color:#bd93f9">0</span>], GL_STATIC_DRAW);
+</span></span></code></pre></div><p>在这个示例中，我们使用了glGenBuffers、glBindBuffer和glBufferData函数来创建和填充顶点缓冲区对象。顶点缓冲区对象存储了顶点数据，并可以通过glVertexAttribPointer函数来指定顶点数据的布局。</p>
+<p>DWORD ：GL_UNSIGNED_BYTE, GL_TRUE</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#6272a4">// 指定顶点属性
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>glVertexAttribPointer(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">3</span>, GL_FLOAT, GL_FALSE, <span style="color:#ff79c6">sizeof</span>(Vertex), (<span style="color:#8be9fd">void</span><span style="color:#ff79c6">*</span>)offsetof(Vertex, vertex));
+</span></span><span style="display:flex;"><span>glEnableVertexAttribArray(<span style="color:#bd93f9">0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>glVertexAttribPointer(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">4</span>, GL_UNSIGNED_BYTE, GL_TRUE, <span style="color:#ff79c6">sizeof</span>(Vertex), (<span style="color:#8be9fd">void</span><span style="color:#ff79c6">*</span>)offsetof(Vertex, color));
+</span></span><span style="display:flex;"><span>glEnableVertexAttribArray(<span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>glVertexAttribPointer(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, GL_FLOAT, GL_FALSE, <span style="color:#ff79c6">sizeof</span>(Vertex), (<span style="color:#8be9fd">void</span><span style="color:#ff79c6">*</span>)offsetof(Vertex, tex));
+</span></span><span style="display:flex;"><span>glEnableVertexAttribArray(<span style="color:#bd93f9">2</span>);
+</span></span></code></pre></div><p>接下来，我们需要创建一个Vertex Shader和一个Fragment Shader来处理这些顶点数据。Shader代码如下：</p>
+<p>Vertex Shader:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-glsl" data-lang="glsl"><span style="display:flex;"><span><span style="color:#ff79c6">#version 330 core</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>layout (location <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>) <span style="color:#ff79c6">in</span> <span style="color:#ff79c6">vec3</span> position;
+</span></span><span style="display:flex;"><span>layout (location <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>) <span style="color:#ff79c6">in</span> <span style="color:#ff79c6">vec4</span> color;
+</span></span><span style="display:flex;"><span>layout (location <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>) <span style="color:#ff79c6">in</span> <span style="color:#ff79c6">vec2</span> texCoord;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">out</span> <span style="color:#ff79c6">vec4</span> vertexColor;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">out</span> <span style="color:#ff79c6">vec2</span> texCoordOut;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">void</span> main()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    gl_Position <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">vec4</span>(position, <span style="color:#bd93f9">1.0</span>);
+</span></span><span style="display:flex;"><span>    vertexColor <span style="color:#ff79c6">=</span> color;
+</span></span><span style="display:flex;"><span>    texCoordOut <span style="color:#ff79c6">=</span> texCoord;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Fragment Shader:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-glsl" data-lang="glsl"><span style="display:flex;"><span><span style="color:#ff79c6">#version 330 core</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">in</span> <span style="color:#ff79c6">vec4</span> vertexColor;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">in</span> <span style="color:#ff79c6">vec2</span> texCoordOut;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">out</span> <span style="color:#ff79c6">vec4</span> FragColor;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">void</span> main()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    FragColor <span style="color:#ff79c6">=</span> vertexColor;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="加入glm宏定义的情况">加入GLM宏定义的情况</h3>
+<p>现在，让我们来看看如果我们加入GLM宏定义<code>#define GLM_FORCE_ALIGNED</code>后会发生什么。首先，在顶点数据结构定义之前加入这个宏定义：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">#define GLM_FORCE_ALIGNED
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;glm/glm.hpp&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;glm/gtc/matrix_transform.hpp&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;glm/gtc/type_ptr.hpp&gt;</span><span style="color:#ff79c6">
+</span></span></span></code></pre></div><p>然后，我们再次计算顶点数据结构的内存大小：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>size_t vertexSizeAligned <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">sizeof</span>(Vertex);
+</span></span></code></pre></div><p>在加入GLM宏定义后，<code>vertexSizeAligned</code>的值变为32字节。这是因为GLM强制使用对齐内存分配，导致每个glm::vec3和glm::vec2都被对齐到16字节和12字节的边界，而DWORD占用4字节，因此总大小变为32字节。</p>
+<h3 id="总结">总结</h3>
+<p>通过使用<code>GLM_FORCE_ALIGNED</code>宏，我们可以确保GLM库的向量和矩阵类型使用了对齐内存分配，从而提高了与其他库和系统的兼容性。在本教程中，我们介绍了如何使用这个宏，并将其应用到之前的示例中，以确保顶点数据结构与OpenGL兼容。</p>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://cfl997.github.io/"><img src="/img/favicon.png" />Caofulei</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2023/12/19/VNDIA/" data-toggle="tooltip" data-placement="top" title="NVIDIA OpenGL FramBuffer Bug-glCreateFramebuffers">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+                
+
+                
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/blog" title="blog">
+                            blog
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/opengl" title="opengl">
+                            opengl
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/shader" title="shader">
+                            shader
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://blog.csdn.net/cfl997?type=blog">CaoFulei的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    <li>
+                        <a href="mailto:caofl997@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    <li>
+                        <a target="_blank" href="/img/image-VX.png">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/cfl997">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/16629998">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+		   
+              <li>
+                  <a target="_blank" href="https://discord.gg/nTRQ5uHuJS">
+                      <span class="fa-stack fa-lg">
+                          <i class="fas fa-circle fa-stack-2x"></i>
+                          <i class="fab fa-flickr fa-stack-1x fa-inverse"></i>
+                      </span>
+                  </a>
+              </li>
+           			   
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Caofulei" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Caofulei 2024
+                    <br>
+                    Powered by <a href="https://lovezjj.cn">CaoFulei</a>
+                    
+					
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>
