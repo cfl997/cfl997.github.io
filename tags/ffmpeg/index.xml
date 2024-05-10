@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ffmpeg on Caofulei</title>
+    <link>http://cfl997.github.io/tags/ffmpeg/</link>
+    <description>Recent content in ffmpeg on Caofulei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ffmpeg7.0 visual studio 2022</title>
+      <link>http://cfl997.github.io/2024/05/1/ffmpeg7.0%20visual%20studio%202022</link>
+      <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://cfl997.github.io/2024/05/1/ffmpeg7.0%20visual%20studio%202022</guid>
+      <description>后面有总结： 安装msys2 打开 （这一步非常重要不然就得指定vs的环境） x64 Native Tools Command Prompt for VS 2022 运行 在x64 Native Tools Command Prompt for VS 2022命令行中切换到msys</description>
+    </item>
+    
+  </channel>
+</rss>
