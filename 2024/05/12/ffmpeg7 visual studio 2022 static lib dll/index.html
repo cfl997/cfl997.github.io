@@ -10,14 +10,14 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="/img/2023/20231206/20231206-Shader-Mosaic.png">
-    <meta property="twitter:image" content="/img/2023/20231206/20231206-Shader-Mosaic.png" />
+    <meta property="og:image" content="/img/2024/ffmpeglog.jpg">
+    <meta property="twitter:image" content="/img/2024/ffmpeglog.jpg" />
     
 
     
-    <meta name="title" content="Mosaic changing by time" />
-    <meta property="og:title" content="Mosaic changing by time" />
-    <meta property="twitter:title" content="Mosaic changing by time" />
+    <meta name="title" content="ffmpeg7.0 visual studio 2022 static lib dll" />
+    <meta property="og:title" content="ffmpeg7.0 visual studio 2022 static lib dll" />
+    <meta property="twitter:title" content="ffmpeg7.0 visual studio 2022 static lib dll" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="曹福磊, Caofulei, Caofulei, 曹福磊的博客, 曹福磊的网络日志, Caofulei Blog, 博客, 个人网站, 互联网, Web, Qt, GoogleTest, 渲染, c&#43;&#43;, OpenGL">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Mosaic changing by time | 曹福磊 | Caofulei Blog</title>
+    <title>ffmpeg7.0 visual studio 2022 static lib dll | 曹福磊 | Caofulei Blog</title>
 
-    <link rel="canonical" href="/2023/12/06/mosaic/">
+    <link rel="canonical" href="/2024/05/12/ffmpeg7%20visual%20studio%202022%20static%20lib%20dll/">
 
     
     
@@ -158,7 +158,7 @@
 
 <style type="text/css">
     header.intro-header {
-        background-image: url('/img/2023/20231206/20231206-Shader-Mosaic.png')
+        background-image: url('/img/2024/ffmpeglog.jpg')
     }
 </style>
 
@@ -170,16 +170,8 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/shader" title="Shader">
-                            Shader
-                        </a>
-                        
-                        <a class="tag" href="/tags/blog" title="Blog">
-                            Blog
-                        </a>
-                        
-                        <a class="tag" href="/tags/opengl" title="OpenGL">
-                            OpenGL
+                        <a class="tag" href="/tags/ffmpeg" title="ffmpeg">
+                            ffmpeg
                         </a>
                         
                         <a class="tag" href="/tags/cplusplus" title="cplusplus">
@@ -187,16 +179,16 @@
                         </a>
                         
                     </div>
-                    <h1>Mosaic changing by time</h1>
-                    <h2 class="subheading">20231206-Shader-Mosaic-马赛克</h2>
+                    <h1>ffmpeg7.0 visual studio 2022 static lib dll</h1>
+                    <h2 class="subheading">windows 下的静态库</h2>
                     <span class="meta">
                         
                             Posted by 
                             
-                                曹福磊
+                                CaoFulei
                              
                             on 
-                            Wednesday, December 6, 2023
+                            Sunday, May 12, 2024
                             
                             
                             
@@ -222,50 +214,132 @@
                 post-container">
 
                 
-                <h2 id="mosaic-by-time">Mosaic By Time</h2>
-<p>随着时间更新马赛克的大小</p>
-<p>ShaderToy
-<a href="https://www.shadertoy.com/view/DlKBRh">https://www.shadertoy.com/view/DlKBRh</a></p>
-<p>
-  <img src="/img/2023/20231206/20231206-Shader-Mosaic.png" alt="">
-
-</p>
-<p>Code：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#6272a4">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">https://www.shadertoy.com/view/DlKBRh
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">Blog：https://blog.lovezjj.cn
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">by cfl997 20231206
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">*/</span>
+                <h3 id="ffmpeg-70--visual-studio-2022-静态库编译使用指南">FFmpeg 7.0 + Visual Studio 2022 静态库编译使用指南</h3>
+<p>本指南详细介绍了如何在 Windows 环境下使用 Visual Studio 2022 和 FFmpeg 7.0 进行静态库编译，并解决可能遇到的依赖库问题。</p>
+<h4 id="1-环境准备">1. 环境准备</h4>
+<ul>
+<li>确保已经安装 <strong>Visual Studio 2022</strong> 。</li>
+</ul>
+<h4 id="2-创建项目目录">2. 创建项目目录</h4>
+<ol>
+<li><strong>创建主目录</strong>：
+<ul>
+<li>新建目录 <code>msvc-ffmpeg</code>。</li>
+<li>在 <code>msvc-ffmpeg</code> 目录下新建子目录：<code>msvc</code> 和 <code>source</code>。</li>
+</ul>
+</li>
+</ol>
+<h4 id="3-获取-ffmpeg-源代码及依赖库">3. 获取 FFmpeg 源代码及依赖库</h4>
+<ol>
+<li>
+<p><strong>克隆 FFmpeg 源代码</strong>：</p>
+<ul>
+<li>打开 <code>source</code> 目录，并执行以下命令：
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/ShiftMediaProject/FFmpeg.git
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> FFmpeg
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>下载依赖库</strong>：</p>
+<ul>
+<li>执行以下命令，确保所有依赖库下载完成：
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./project_get_dependencies.bat
+</span></span></code></pre></div></li>
+<li>多次执行该命令，以确保每个依赖库都已克隆完毕。</li>
+<li>您也可以手动在 <code>source</code> 目录下克隆或解压依赖库，保持目录名称不变。</li>
+</ul>
+</li>
+<li>
+<p><strong>验证依赖库完整性</strong>：</p>
+<ul>
+<li>打开 <code>ffmpeg_deps.sln</code>，确保所有依赖库加载正确。</li>
+</ul>
+</li>
+</ol>
+<h4 id="4-获取额外的头文件">4. 获取额外的头文件</h4>
+<ol>
+<li>
+<p><strong>创建 include 目录结构</strong>：</p>
+<ul>
+<li>在 <code>msvc</code> 目录下新建 <code>include</code> 目录。</li>
+<li>在 <code>include</code> 目录内新建 <code>gl</code> 和 <code>AMF</code> 目录。</li>
+</ul>
+</li>
+<li>
+<p><strong>克隆并复制头文件</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> include
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4">// 定义一个变量 Square，表示一个正方形的尺寸
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd">float</span> Square <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">80.0</span>;
+</span></span><span style="display:flex;"><span>git clone https://github.com/KhronosGroup/OpenGL-Registry.git
+</span></span><span style="display:flex;"><span>cp OpenGL-Registry/api/GL/glext.h OpenGL-Registry/api/GL/wglext.h gl/
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4">// 主函数，负责计算每个像素的颜色值
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">mainImage</span>(out vec4 fragColor, in vec2 fragCoord)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 计算纹理坐标（uv坐标），将屏幕像素坐标转换为[0,1]范围内的坐标
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    vec2 uv <span style="color:#ff79c6">=</span> fragCoord <span style="color:#ff79c6">/</span> iResolution.xy;
+</span></span><span style="display:flex;"><span>git clone https://github.com/KhronosGroup/EGL-Registry.git
+</span></span><span style="display:flex;"><span>cp -r EGL-Registry/api/KHR .
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 计算时间（以秒为单位），并对其取模，使其在一个固定的范围内循环
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">float</span> time <span style="color:#ff79c6">=</span> mod(iTime, <span style="color:#bd93f9">10.0</span>);
+</span></span><span style="display:flex;"><span>git clone https://github.com/FFmpeg/nv-codec-headers.git
+</span></span><span style="display:flex;"><span>cp -r nv-codec-headers/include/ffnvcodec .
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 计算一个计数值，用时间乘以Square变量
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">float</span> count <span style="color:#ff79c6">=</span> time <span style="color:#ff79c6">*</span> Square;
+</span></span><span style="display:flex;"><span>git clone https://github.com/GPUOpen-LibrariesAndSDKs/AMF.git
+</span></span><span style="display:flex;"><span>cp -r AMF/amf/public/include/* AMF/
+</span></span></code></pre></div></li>
+</ol>
+<h4 id="5-安装-vsnasm-和-vsyasm">5. 安装 VSNASM 和 VSYASM</h4>
+<ol>
+<li>
+<p><strong>下载并安装 VSNASM 和 VSYASM</strong>：</p>
+<ul>
+<li>从以下链接下载最新版本的 VSNASM 和 VSYASM：
+<ul>
+<li><a href="https://github.com/ShiftMediaProject/VSNASM/releases">VSNASM</a></li>
+<li><a href="https://github.com/ShiftMediaProject/VSYASM/releases">VSYASM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>执行安装脚本</strong>：</p>
+<ul>
+<li>
+<p>打开 <code>Developer PowerShell for VS 2022</code></p>
+</li>
+<li>
+<p>切换到下载并解压的目录中，分别执行 <code>install_script.bat</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> path<span style="color:#f1fa8c">\t</span>o<span style="color:#f1fa8c">\V</span>SNASM
+</span></span><span style="display:flex;"><span>./install_script.bat
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 将uv坐标乘以count，然后取整数部分，再除以count，实现对uv坐标的分块效果
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    uv <span style="color:#ff79c6">=</span> floor(uv <span style="color:#ff79c6">*</span> count) <span style="color:#ff79c6">/</span> count;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 从纹理中获取颜色值，并赋值给fragColor
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    fragColor <span style="color:#ff79c6">=</span> texture(iChannel0, uv);
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 另一种获取颜色值的方式，使用textureLod函数，并指定mipmap级别为0.0f
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// fragColor = textureLod(iChannel0, uv, 0.0f);
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
-</span></span></code></pre></div><p>If the channel filter is set to NEAREST or LINEAR, texture can be used directly, otherwise textureLod needs to be used. Otherwise there will be a border in the view.</p>
-<p>如果通道过滤设置为：最近点(NEAREST)或线性(LINEAR)，那么可以直接使用texture，否则需要使用textureLod。不然视图上会有边框。</p>
-<p>
-  <img src="/img/2023/20231206/20231206-Shader-Mosaic-border.png" alt="">
-
-</p>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> path<span style="color:#f1fa8c">\t</span>o<span style="color:#f1fa8c">\V</span>SYASM
+</span></span><span style="display:flex;"><span>./install_script.bat
+</span></span></code></pre></div></li>
+<li>
+<p>如果脚本不支持 VS 2022，您可能需要手动修改 <code>install_script.bat</code> 文件以包括 VS 2022。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="6-编译-ffmpeg">6. 编译 FFmpeg</h4>
+<ol>
+<li>
+<p><strong>确保所有依赖库和环境已正确配置</strong>：</p>
+<ul>
+<li>确认 <code>install_script.bat</code> 中的所有库都已正确加载。</li>
+</ul>
+</li>
+<li>
+<p><strong>开始编译</strong>：</p>
+<ul>
+<li>打开 Visual Studio 2022，加载 <code>ffmpeg_deps.sln</code>。</li>
+<li>配置编译选项为 Release 模式。</li>
+<li>开始编译。</li>
+</ul>
+</li>
+<li>
+<p><strong>编译结果</strong>：</p>
+<ul>
+<li>编译生成的文件将位于 <code>msvc</code> 目录下的 <code>lib</code> 和 <code>bin</code> 目录中。</li>
+</ul>
+</li>
+</ol>
+<p>以上步骤完成后，您将能够在 Windows 环境下使用 Visual Studio 2022 编译并使用 FFmpeg 7.0 静态库。</p>
 
 
                 
@@ -314,11 +388,11 @@
                 <hr>
                 <ul class="pager">
                     
-                    
-                    <li class="next">
-                        <a href="/2023/12/07/Gray/" data-toggle="tooltip" data-placement="top" title="Calculation method of gray value">Next
-                            Post &rarr;</a>
+                    <li class="previous">
+                        <a href="/2024/05/1/ffmpeg7%20visual%20studio%202022/" data-toggle="tooltip" data-placement="top" title="ffmpeg7.0 visual studio 2022">&larr;
+                            Previous Post</a>
                     </li>
+                    
                     
                 </ul>
                 

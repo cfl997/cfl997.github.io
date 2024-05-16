@@ -6,7 +6,16 @@
     <description>Recent content in cplusplus on Caofulei</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/tags/cplusplus/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/tags/cplusplus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ffmpeg7.0 visual studio 2022 static lib dll</title>
+      <link>http://cfl997.github.io/2024/05/12/ffmpeg7%20visual%20studio%202022%20static%20lib%20dll/</link>
+      <pubDate>Sun, 12 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://cfl997.github.io/2024/05/12/ffmpeg7%20visual%20studio%202022%20static%20lib%20dll/</guid>
+      <description>FFmpeg 7.0 + Visual Studio 2022 静态库编译使用指南 本指南详细介绍了如何在 Windows 环境下使用 Visual Studio 2022 和 FFmpeg 7.0 进行静态库编译，并解决可能遇到的依赖库问题。 1. 环境准备 确保已经安</description>
+    </item>
+    
     <item>
       <title>ffmpeg7.0 visual studio 2022</title>
       <link>http://cfl997.github.io/2024/05/1/ffmpeg7%20visual%20studio%202022/</link>
