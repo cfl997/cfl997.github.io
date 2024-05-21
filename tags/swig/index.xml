@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>swig on Caofulei</title>
+    <link>http://cfl997.github.io/tags/swig/</link>
+    <description>Recent content in swig on Caofulei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/tags/swig/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swig CMakeLists</title>
+      <link>http://cfl997.github.io/2024/05/19/Swig%20CMakeLists/</link>
+      <pubDate>Sun, 19 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://cfl997.github.io/2024/05/19/Swig%20CMakeLists/</guid>
+      <description>swig转换的cmake配置很乱 没有一个详细的解释。 当将.i文件单独拎出来生成一个单独的dll非常的麻烦。 于是采用最简便的方法。 并且生成的d</description>
+    </item>
+    
+  </channel>
+</rss>

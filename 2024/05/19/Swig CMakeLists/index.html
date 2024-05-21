@@ -10,14 +10,14 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="http://cfl997.github.io//img/home-bg-jeep.jpg">
-    <meta property="twitter:image" content="http://cfl997.github.io//img/home-bg-jeep.jpg" />
+    <meta property="og:image" content="/img/2024/swig.png">
+    <meta property="twitter:image" content="/img/2024/swig.png" />
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="Swig CMakeLists" />
+    <meta property="og:title" content="Swig CMakeLists" />
+    <meta property="twitter:title" content="Swig CMakeLists" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="曹福磊, Caofulei, 曹福磊的博客, 曹福磊的网络日志, Caofulei Blog, 博客, 个人网站, 互联网, Web, Qt, GoogleTest, 渲染, c&#43;&#43;, OpenGL, cplusplus">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Posts | 曹福磊 | Caofulei Blog</title>
+    <title>Swig CMakeLists | 曹福磊 | Caofulei Blog</title>
 
-    <link rel="canonical" href="/post/">
+    <link rel="canonical" href="/2024/05/19/Swig%20CMakeLists/">
 
     
     
@@ -155,14 +155,45 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/home-bg-jeep.jpg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/2024/swig.png')
+    }
+</style>
+
+<header class="intro-header" >
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Caofulei </h1>
-                    
-		    <span class="subheading">路在脚下，心向远方</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/cplusplus" title="cplusplus">
+                            cplusplus
+                        </a>
+                        
+                        <a class="tag" href="/tags/swig" title="swig">
+                            swig
+                        </a>
+                        
+                    </div>
+                    <h1>Swig CMakeLists</h1>
+                    <h2 class="subheading">Swig 转 c#</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                CaoFulei
+                             
+                            on 
+                            Sunday, May 19, 2024
+                            
+                            
+                            
+                            
+                    </span>
                 </div>
             </div>
         </div>
@@ -175,19 +206,152 @@
 <article>
     <div class="container">
         <div class="row">
+
             
             <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
 
-         	
+                
+                <p>swig转换的cmake配置很乱 没有一个详细的解释。</p>
+<p>当将.i文件单独拎出来生成一个单独的dll非常的麻烦。</p>
+<p>于是采用最简便的方法。</p>
+<p>并且生成的dll不影响c++本身项目的使用。</p>
+<p>比如这个既可以给c#用也可以给c++用。</p>
+<h4 id="不用重复修改重复编译">不用重复修改、重复编译。</h4>
+<h3 id="核心不要把i文件单独拎出来在生成一个项目">核心：不要把.i文件单独拎出来，在生成一个项目。</h3>
+<p>这样会导致需要生成的项目重新配置一遍，完全是重复的操作。并且要维护两个CMakeLists.txt</p>
+<p>假定我们需要有一个项目导出，原本的项目为动态库。</p>
+<p>只需要更改swig配置即可。</p>
+<p>在原本的项目CMakeLists.txt中。我们关闭</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">if</span>(<span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>ADD_LIBRARY(${LIB_NAME} SHARED
+</span></span><span style="display:flex;"><span>	${COMMON_SOURCE_FILES} 
+</span></span><span style="display:flex;"><span>	${COMMON_HEAD_FILES} 
+</span></span><span style="display:flex;"><span>	${COMMON_HEAD_PUBLIC}
+</span></span><span style="display:flex;"><span>	${EVENT_FILES}
+</span></span><span style="display:flex;"><span>	${ITEM_EVENT}
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">else</span>()
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#这里添加swig配置即可
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span>endif()
+</span></span></code></pre></div><p>swig的添加</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>find_package(SWIG REQUIRED)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>include(${SWIG_USE_FILE})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set_property(SOURCE Cplusplus2CSharp.i PROPERTY CPLUSPLUS ON)
+</span></span></code></pre></div><p>接下来是如何把所有的项目都包含进来：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>set(swig_source_file
+</span></span><span style="display:flex;"><span>	${COMMON_SOURCE_FILES} 
+</span></span><span style="display:flex;"><span>	${COMMON_HEAD_FILES} 
+</span></span><span style="display:flex;"><span>	${COMMON_HEAD_PUBLIC}
+</span></span><span style="display:flex;"><span>	${EVENT_FILES}
+</span></span><span style="display:flex;"><span>	${ITEM_EVENT}
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>设置输出目录和输出文件目录</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>set(CGRenderView_include_DIR <span style="color:#f1fa8c">&#34;${CGRender_ROOT_DIR}/include/CGRenderView&#34;</span>)
+</span></span><span style="display:flex;"><span>set(Cplusplus2CSharp_DIR <span style="color:#f1fa8c">&#34;${CGRender_ROOT_DIR}/include/Cplusplus2CSharp&#34;</span>)
+</span></span></code></pre></div><p>用siwg的add_library</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>swig_add_library(${PROJECT_NAME} 
+</span></span><span style="display:flex;"><span>  TYPE SHARED
+</span></span><span style="display:flex;"><span>  LANGUAGE CSharp
+</span></span><span style="display:flex;"><span>  SOURCES Cplusplus2CSharp.i ${swig_source_file}
+</span></span><span style="display:flex;"><span>  OUTPUT_DIR ${Cplusplus2CSharp_DIR}
+</span></span><span style="display:flex;"><span>  OUTFILE_DIR ${CGRenderView_include_DIR}
+</span></span><span style="display:flex;"><span>  )
+</span></span></code></pre></div><p>最后链接我们的</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>set_target_properties( ${PROJECT_NAME}
+</span></span><span style="display:flex;"><span>    PROPERTIES
+</span></span><span style="display:flex;"><span>    RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CGRender_ROOT_DIR}<span style="color:#ff79c6">/</span>bin64<span style="color:#ff79c6">/</span>
+</span></span><span style="display:flex;"><span>    RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CGRender_ROOT_DIR}<span style="color:#ff79c6">/</span>bin64<span style="color:#ff79c6">/</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6"># Set address of C++ headers
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>    <span style="color:#ff79c6">#INCLUDE_DIRECTORIES ${swig_include_file} #这个不用，采用全局的方式
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>)
+</span></span><span style="display:flex;"><span>endif()
+</span></span></code></pre></div>
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://cfl997.github.io/"><img src="/img/favicon.png" />Caofulei</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/05/12/ffmpeg7%20visual%20studio%202022%20static%20lib%20dll/" data-toggle="tooltip" data-placement="top" title="ffmpeg7.0 visual studio 2022 static lib dll">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+                
+
                 
 
 
 
-
             </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
             
             <div class="
                 col-lg-8 col-lg-offset-2
@@ -204,19 +368,19 @@
                         
                         
                         <a href="/tags/blog" title="blog">
-                        blog
+                            blog
                         </a>
                         
                         
                         
                         <a href="/tags/cplusplus" title="cplusplus">
-                        cplusplus
+                            cplusplus
                         </a>
                         
                         
                         
                         <a href="/tags/ffmpeg" title="ffmpeg">
-                        ffmpeg
+                            ffmpeg
                         </a>
                         
                         
@@ -224,13 +388,13 @@
                         
                         
                         <a href="/tags/opengl" title="opengl">
-                        opengl
+                            opengl
                         </a>
                         
                         
                         
                         <a href="/tags/shader" title="shader">
-                        shader
+                            shader
                         </a>
                         
                         
@@ -343,7 +507,7 @@
            			   
            
                    <li>
-                       <a href='/post/index.xml' rel="alternate" type="application/rss+xml" title="Caofulei" >
+                       <a href='' rel="alternate" type="application/rss+xml" title="Caofulei" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

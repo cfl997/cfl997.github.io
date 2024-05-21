@@ -6,7 +6,16 @@
     <description>Recent content on Caofulei</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swig CMakeLists</title>
+      <link>http://cfl997.github.io/2024/05/19/Swig%20CMakeLists/</link>
+      <pubDate>Sun, 19 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://cfl997.github.io/2024/05/19/Swig%20CMakeLists/</guid>
+      <description>swig转换的cmake配置很乱 没有一个详细的解释。 当将.i文件单独拎出来生成一个单独的dll非常的麻烦。 于是采用最简便的方法。 并且生成的d</description>
+    </item>
+    
     <item>
       <title>ffmpeg7.0 visual studio 2022 static lib dll</title>
       <link>http://cfl997.github.io/2024/05/12/ffmpeg7%20visual%20studio%202022%20static%20lib%20dll/</link>
