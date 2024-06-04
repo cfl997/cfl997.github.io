@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CUDA on Caofulei</title>
+    <link>http://cfl997.github.io/tags/cuda/</link>
+    <description>Recent content in CUDA on Caofulei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 02 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/tags/cuda/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CUDA use OpenGL Texture R16 and RGBA EqualizeHistogram</title>
+      <link>http://cfl997.github.io/2024/06/01/CUDA%20OpenGL/</link>
+      <pubDate>Sun, 02 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://cfl997.github.io/2024/06/01/CUDA%20OpenGL/</guid>
+      <description>cuda和OpenGL纹理结合，并进行直方图计算 针对于单通道16位图像。结合方式在CUDA_equalizeHistogram函数中。 其他的</description>
+    </item>
+    
+  </channel>
+</rss>

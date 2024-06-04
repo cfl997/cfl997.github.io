@@ -6,13 +6,31 @@
     <description>Recent content in Tags on Caofulei</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>cplusplus</title>
       <link>http://cfl997.github.io/tags/cplusplus/</link>
-      <pubDate>Sun, 19 May 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 02 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>http://cfl997.github.io/tags/cplusplus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CUDA</title>
+      <link>http://cfl997.github.io/tags/cuda/</link>
+      <pubDate>Sun, 02 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://cfl997.github.io/tags/cuda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OpenGL</title>
+      <link>http://cfl997.github.io/tags/opengl/</link>
+      <pubDate>Sun, 02 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://cfl997.github.io/tags/opengl/</guid>
       <description></description>
     </item>
     
@@ -40,15 +58,6 @@
       <pubDate>Sun, 21 Jan 2024 00:00:00 +0000</pubDate>
       
       <guid>http://cfl997.github.io/tags/glm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>OpenGL</title>
-      <link>http://cfl997.github.io/tags/opengl/</link>
-      <pubDate>Sun, 21 Jan 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://cfl997.github.io/tags/opengl/</guid>
       <description></description>
     </item>
     
