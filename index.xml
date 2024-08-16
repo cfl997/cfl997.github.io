@@ -6,7 +6,16 @@
     <description>Recent content on Caofulei</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 02 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nodepad&#43;&#43; 不当言论</title>
+      <link>http://cfl997.github.io/2024/08/16/Nodepad/</link>
+      <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://cfl997.github.io/2024/08/16/Nodepad/</guid>
+      <description>今天更新Nodepad++ 但是看到官网上的不当言论非常生气 虽然他是个跨平台好用的文本编辑软件，但作为一个中国人，台湾分裂绝不支持，以后再也不</description>
+    </item>
+    
     <item>
       <title>CUDA use OpenGL Texture R16 and RGBA EqualizeHistogram</title>
       <link>http://cfl997.github.io/2024/06/01/CUDA%20OpenGL/</link>
