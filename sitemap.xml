@@ -2,25 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://cfl997.github.io/2025/02/22/CFLRenderAPI/</loc>
+    <lastmod>2025-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://cfl997.github.io/categories/blog/</loc>
+    <lastmod>2025-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://cfl997.github.io/</loc>
+    <lastmod>2025-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://cfl997.github.io/categories/</loc>
+    <lastmod>2025-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://cfl997.github.io/tags/opengl/</loc>
+    <lastmod>2025-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://cfl997.github.io/tags/person/</loc>
+    <lastmod>2025-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://cfl997.github.io/post/</loc>
+    <lastmod>2025-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://cfl997.github.io/tags/</loc>
+    <lastmod>2025-02-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://cfl997.github.io/2025/01/24/webgldynamicpoint/</loc>
     <lastmod>2025-01-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://cfl997.github.io/</loc>
-    <lastmod>2025-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://cfl997.github.io/categories/</loc>
-    <lastmod>2025-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://cfl997.github.io/categories/life/</loc>
-    <lastmod>2025-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://cfl997.github.io/tags/person/</loc>
-    <lastmod>2025-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://cfl997.github.io/post/</loc>
-    <lastmod>2025-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://cfl997.github.io/tags/</loc>
+    <loc>http://cfl997.github.io/tags/webgl/</loc>
     <lastmod>2025-01-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://cfl997.github.io/2025/01/23/webglstaticpoint/</loc>
@@ -28,6 +37,9 @@
   </url><url>
     <loc>http://cfl997.github.io/2025/01/22/cflChromePick/</loc>
     <lastmod>2025-01-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://cfl997.github.io/categories/life/</loc>
+    <lastmod>2025-01-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://cfl997.github.io/2025/01/21/smarthome/</loc>
     <lastmod>2025-01-21T00:00:00+00:00</lastmod>
@@ -47,9 +59,6 @@
     <loc>http://cfl997.github.io/categories/opinion/</loc>
     <lastmod>2024-08-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://cfl997.github.io/categories/blog/</loc>
-    <lastmod>2024-06-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://cfl997.github.io/tags/cplusplus/</loc>
     <lastmod>2024-06-02T00:00:00+00:00</lastmod>
   </url><url>
@@ -57,9 +66,6 @@
     <lastmod>2024-06-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://cfl997.github.io/2024/06/01/CUDA%20OpenGL/</loc>
-    <lastmod>2024-06-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://cfl997.github.io/tags/opengl/</loc>
     <lastmod>2024-06-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://cfl997.github.io/tags/swig/</loc>

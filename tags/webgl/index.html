@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="Calligraphy" />
-    <meta property="og:title" content="Calligraphy" />
-    <meta property="twitter:title" content="Calligraphy" />
+    <meta name="title" content="WebGL" />
+    <meta property="og:title" content="WebGL" />
+    <meta property="twitter:title" content="WebGL" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="曹福磊, Caofulei, 曹福磊的博客, 曹福磊的网络日志, Caofulei Blog, 博客, 个人网站, 互联网, Web, Qt, GoogleTest, 渲染, c&#43;&#43;, OpenGL, cplusplus">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Calligraphy | 曹福磊 | Caofulei Blog</title>
+    <title>WebGL | 曹福磊 | Caofulei Blog</title>
 
-    <link rel="canonical" href="/tags/calligraphy/">
+    <link rel="canonical" href="/tags/webgl/">
 
     
     
@@ -195,24 +195,51 @@
 <div data-pagefind-ignore="all">
 
 <div class="post-preview">
-    <a href="http://cfl997.github.io/2024/10/24/Calligraphy/">
+    <a href="http://cfl997.github.io/2025/01/24/webgldynamicpoint/">
         <h2 class="post-title">
-            书法入选
+            【WebGL】动态点
         </h2>
 	
         <h3 class="post-subtitle">
-            Calligraphy was selected
+            WebGL绘制鼠标点击位置
         </h3>
 	
         <div class="post-content-preview">
 	
-            截稿前一周，想着写字那么多年了也没投过展，要不这次试试吧，能入选就行。 写了一遍，太丑了，再来一遍，就投了。 预期：入选 结果：入选
+            添加鼠标点击事件 绘制位置，pointsize为60 &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt; &lt;title&gt;Document&lt;/title&gt; &lt;script src=&#34;glMatrix-0.9.6.min.js&#34;&gt;&lt;/script&gt; &lt;script&gt; class WebGLApp { constructor() { this.vertexString = ` attribute vec3 a_position; uniform mat4 proj; void main(void){ gl_Position = vec4(a_position, 1.0); gl_PointSize = 60.0; } `; this.fragmentString =
        
         </div>
     </a>
     <p class="post-meta">
     
-        Posted by CaoFulei on Thursday, October 24, 2024
+        Posted by CaoFulei on Friday, January 24, 2025
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://cfl997.github.io/2025/01/23/webglstaticpoint/">
+        <h2 class="post-title">
+            【WebGL】静态点
+        </h2>
+	
+        <h3 class="post-subtitle">
+            WebGL绘制静态点
+        </h3>
+	
+        <div class="post-content-preview">
+	
+            资源glMatrix 官网： https://glmatrix.net/ &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt; &lt;title&gt;Document&lt;/title&gt; &lt;script src=&#34;glMatrix-0.9.6.min.js&#34;&gt; //加载封好的库 //https://glmatrix.net/ &lt;/script&gt; &lt;script&gt; class WebGLApp { constructor() { this.vertexString = ` attribute vec4 pos; uniform mat4 proj; void main(void){ gl_Position = proj * pos; gl_PointSize = 60.0; } `; this.fragmentString = ` void main(void){
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by CaoFulei on Thursday, January 23, 2025
         
         
     
@@ -491,7 +518,7 @@
            			   
            
                    <li>
-                       <a href='/tags/calligraphy/index.xml' rel="alternate" type="application/rss+xml" title="Caofulei" >
+                       <a href='/tags/webgl/index.xml' rel="alternate" type="application/rss+xml" title="Caofulei" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

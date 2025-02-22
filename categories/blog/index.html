@@ -195,6 +195,114 @@
 <div data-pagefind-ignore="all">
 
 <div class="post-preview">
+    <a href="http://cfl997.github.io/2025/02/22/CFLRenderAPI/">
+        <h2 class="post-title">
+            【CFLRenderAPI】 一、整体框架 和 基本配置
+        </h2>
+	
+        <h3 class="post-subtitle">
+            渲染引擎
+        </h3>
+	
+        <div class="post-content-preview">
+	
+            CFLRenderAPI 项目文档 项目地址： GitHub : https://github.com/cfl997/CFLRenderAPI 项目概述 CFLRenderAPI 是一个跨平台的渲染引擎，旨在为上层应用提供统一的API接口，支持OpenGL和DirectX两种渲染后端
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by CaoFulei on Saturday, February 22, 2025
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://cfl997.github.io/2025/01/24/webgldynamicpoint/">
+        <h2 class="post-title">
+            【WebGL】动态点
+        </h2>
+	
+        <h3 class="post-subtitle">
+            WebGL绘制鼠标点击位置
+        </h3>
+	
+        <div class="post-content-preview">
+	
+            添加鼠标点击事件 绘制位置，pointsize为60 &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt; &lt;title&gt;Document&lt;/title&gt; &lt;script src=&#34;glMatrix-0.9.6.min.js&#34;&gt;&lt;/script&gt; &lt;script&gt; class WebGLApp { constructor() { this.vertexString = ` attribute vec3 a_position; uniform mat4 proj; void main(void){ gl_Position = vec4(a_position, 1.0); gl_PointSize = 60.0; } `; this.fragmentString =
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by CaoFulei on Friday, January 24, 2025
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://cfl997.github.io/2025/01/23/webglstaticpoint/">
+        <h2 class="post-title">
+            【WebGL】静态点
+        </h2>
+	
+        <h3 class="post-subtitle">
+            WebGL绘制静态点
+        </h3>
+	
+        <div class="post-content-preview">
+	
+            资源glMatrix 官网： https://glmatrix.net/ &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt; &lt;title&gt;Document&lt;/title&gt; &lt;script src=&#34;glMatrix-0.9.6.min.js&#34;&gt; //加载封好的库 //https://glmatrix.net/ &lt;/script&gt; &lt;script&gt; class WebGLApp { constructor() { this.vertexString = ` attribute vec4 pos; uniform mat4 proj; void main(void){ gl_Position = proj * pos; gl_PointSize = 60.0; } `; this.fragmentString = ` void main(void){
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by CaoFulei on Thursday, January 23, 2025
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://cfl997.github.io/2025/01/22/cflChromePick/">
+        <h2 class="post-title">
+            自动打开网页点击PT站点签到
+        </h2>
+	
+        <h3 class="post-subtitle">
+            Smart home
+        </h3>
+	
+        <div class="post-content-preview">
+	
+            版本： https://github.com/cfl997/cflChromePick/releases/tag/20250122 总体：浏览器打开指定网页，点击任意指定（href判定）按钮 功能： 保持浏览器登录状态，打开默认用户文件 模拟点击签到（点击按钮自行设置：
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by CaoFulei on Wednesday, January 22, 2025
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="http://cfl997.github.io/2024/06/01/CUDA%20OpenGL/">
         <h2 class="post-title">
             CUDA use OpenGL Texture R16 and RGBA EqualizeHistogram
@@ -213,114 +321,6 @@
     <p class="post-meta">
     
         Posted by CaoFulei on Sunday, June 2, 2024
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="http://cfl997.github.io/2024/05/19/Swig%20CMakeLists/">
-        <h2 class="post-title">
-            Swig CMakeLists
-        </h2>
-	
-        <h3 class="post-subtitle">
-            Swig 转 c#
-        </h3>
-	
-        <div class="post-content-preview">
-	
-            swig转换的cmake配置很乱 没有一个详细的解释。 当将.i文件单独拎出来生成一个单独的dll非常的麻烦。 于是采用最简便的方法。 并且生成的d
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by CaoFulei on Sunday, May 19, 2024
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="http://cfl997.github.io/2024/05/12/ffmpeg7%20visual%20studio%202022%20static%20lib%20dll/">
-        <h2 class="post-title">
-            ffmpeg7.0 visual studio 2022 static lib dll
-        </h2>
-	
-        <h3 class="post-subtitle">
-            windows 下的静态库
-        </h3>
-	
-        <div class="post-content-preview">
-	
-            FFmpeg 7.0 + Visual Studio 2022 静态库编译使用指南 本指南详细介绍了如何在 Windows 环境下使用 Visual Studio 2022 和 FFmpeg 7.0 进行静态库编译，并解决可能遇到的依赖库问题。 1. 环境准备 确保已经安
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by CaoFulei on Sunday, May 12, 2024
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="http://cfl997.github.io/2024/05/1/ffmpeg7%20visual%20studio%202022/">
-        <h2 class="post-title">
-            ffmpeg7.0 visual studio 2022
-        </h2>
-	
-        <h3 class="post-subtitle">
-            windows编译极简方式
-        </h3>
-	
-        <div class="post-content-preview">
-	
-            后面有总结： 安装msys2 打开 （这一步非常重要不然就得指定vs的环境） x64 Native Tools Command Prompt for VS 2022 运行 在x64 Native Tools Command Prompt for VS 2022命令行中切换到msys
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by CaoFulei on Wednesday, May 1, 2024
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="http://cfl997.github.io/2024/01/21/glmvec3MemoryAlignment/">
-        <h2 class="post-title">
-            glm::vec3 Memory Alignment
-        </h2>
-	
-        <h3 class="post-subtitle">
-            2024-01-21 glm::vec3 放入结构体中的对其问题
-        </h3>
-	
-        <div class="post-content-preview">
-	
-            介绍 在OpenGL编程中，与顶点数据的交互是非常常见的操作。在C++中，通常会使用GLM库提供的数据结构，如glm::vec3，来表示顶点数
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by CaoFulei on Sunday, January 21, 2024
         
         
     
@@ -491,6 +491,12 @@
                     </a>
                
             
+               
+            
+               
+                    <a href="/tags/webgl" title="webgl">
+                        webgl
+                    </a>
                
             
         </div>

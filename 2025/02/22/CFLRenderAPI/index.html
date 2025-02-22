@@ -10,14 +10,14 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="http://cfl997.github.io//img/home-bg-jeep.jpg">
-    <meta property="twitter:image" content="http://cfl997.github.io//img/home-bg-jeep.jpg" />
+    <meta property="og:image" content="/img/2025/CFLRenderAPI-logo.png">
+    <meta property="twitter:image" content="/img/2025/CFLRenderAPI-logo.png" />
     
 
     
-    <meta name="title" content="自动打开网页点击PT站点签到" />
-    <meta property="og:title" content="自动打开网页点击PT站点签到" />
-    <meta property="twitter:title" content="自动打开网页点击PT站点签到" />
+    <meta name="title" content="【CFLRenderAPI】 一、整体框架 和 基本配置" />
+    <meta property="og:title" content="【CFLRenderAPI】 一、整体框架 和 基本配置" />
+    <meta property="twitter:title" content="【CFLRenderAPI】 一、整体框架 和 基本配置" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="曹福磊, Caofulei, 曹福磊的博客, 曹福磊的网络日志, Caofulei Blog, 博客, 个人网站, 互联网, Web, Qt, GoogleTest, 渲染, c&#43;&#43;, OpenGL, cplusplus">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>自动打开网页点击PT站点签到 | 曹福磊 | Caofulei Blog</title>
+    <title>【CFLRenderAPI】 一、整体框架 和 基本配置 | 曹福磊 | Caofulei Blog</title>
 
-    <link rel="canonical" href="/2025/01/22/cflChromePick/">
+    <link rel="canonical" href="/2025/02/22/CFLRenderAPI/">
 
     
     
@@ -166,7 +166,7 @@
 
 <style type="text/css">
     header.intro-header {
-        background-image: url('/img/home-bg-jeep.jpg')
+        background-image: url('/img/2025/CFLRenderAPI-logo.png')
     }
 </style>
 
@@ -182,9 +182,13 @@
                             Person
                         </a>
                         
+                        <a class="tag" href="/tags/opengl" title="OpenGL">
+                            OpenGL
+                        </a>
+                        
                     </div>
-                    <h1>自动打开网页点击PT站点签到</h1>
-                    <h2 class="subheading">Smart home</h2>
+                    <h1>【CFLRenderAPI】 一、整体框架 和 基本配置</h1>
+                    <h2 class="subheading">渲染引擎</h2>
                     <span class="meta">
                         
                             Posted by 
@@ -192,7 +196,7 @@
                                 CaoFulei
                              
                             on 
-                            Wednesday, January 22, 2025
+                            Saturday, February 22, 2025
                             
                             
                             
@@ -218,39 +222,78 @@
                 post-container">
 
                 
-                <p>版本：
-<a href="https://github.com/cfl997/cflChromePick/releases/tag/20250122">https://github.com/cfl997/cflChromePick/releases/tag/20250122</a></p>
-<p>总体：浏览器打开指定网页，点击任意指定（href判定）按钮</p>
-<p>
-  <img src="/img/2025/cflChromePick.gif" alt="">
-
-</p>
-<p>功能：
-保持浏览器登录状态，打开默认用户文件
-模拟点击签到（点击按钮自行设置：根据href名称）
-log日志
-首次配置文件，后续不用再填写</p>
-<p>python</p>
-<p>安装</p>
-<p>pip install selenium</p>
-<p>pip install PyQt5</p>
-<p>安装
-pip install pyinstaller</p>
-<p>pyinstaller &ndash;onefile &ndash;windowed cflChromePick.py</p>
-<p>查看chrome浏览器版本
-chrome://settings/help</p>
-<p>下载对应ChromeDriver.exe
-<a href="https://googlechromelabs.github.io/chrome-for-testing/">https://googlechromelabs.github.io/chrome-for-testing/</a></p>
-<p>查看版本
-.\chromedriver.exe -version</p>
-<p>默认配置： 自行更改
-[SETTINGS]
-url1 = <a href="https://carpt.net/index.php">https://carpt.net/index.php</a></p>
-<p>url2 = <a href="https://1ptba.com/index.php">https://1ptba.com/index.php</a></p>
-<p>href = attendance.php</p>
-<p>driver_path = E:\A\program\vscode\python\ChromePick\chromedriver.exe</p>
-<p>user_data_dir = E:\A\program\vscode\python\ChromePick\UserData</p>
-<p>time = 19:21</p>
+                <h1 id="cflrenderapi-项目文档">CFLRenderAPI 项目文档</h1>
+<p>项目地址：</p>
+<h2 id="github--httpsgithubcomcfl997cflrenderapihttpsgithubcomcfl997cflrenderapi">GitHub : <a href="https://github.com/cfl997/CFLRenderAPI">https://github.com/cfl997/CFLRenderAPI</a></h2>
+<h2 id="项目概述">项目概述</h2>
+<p>CFLRenderAPI 是一个跨平台的渲染引擎，旨在为上层应用提供统一的API接口，支持OpenGL和DirectX两种渲染后端。通过动态加载库的方式，上层应用可以切换不同的渲染引擎。</p>
+<p>支持多任务多线程。使渲染层和分离。</p>
+<h2 id="项目结构">项目结构</h2>
+<ul>
+<li><strong>RenderAPI</strong>: 对外暴露的接口模块，定义了上层应用与渲染引擎的交互接口。</li>
+<li><strong>RenderGL</strong>: OpenGL渲染模块，实现了基于OpenGL的渲染功能。</li>
+<li><strong>RenderDX</strong>: DirectX渲染模块，实现了基于DirectX的渲染功能。</li>
+<li><strong>上层应用</strong>: 通过调用<code>RenderAPI</code>提供的接口，使用不同的渲染引擎进行渲染。</li>
+</ul>
+<h2 id="构建与配置">构建与配置</h2>
+<h3 id="cmake-配置">CMake 配置</h3>
+<p>项目使用CMake进行构建，支持<code>Debug</code>和<code>Release</code>两种构建模式。可以通过以下命令指定构建类型：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cmake -DCMAKE_BUILD_TYPE<span style="color:#ff79c6">=</span>Debug ..
+</span></span></code></pre></div><p>或</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cmake -DCMAKE_BUILD_TYPE<span style="color:#ff79c6">=</span>Release ..
+</span></span></code></pre></div><h3 id="第三方库依赖">第三方库依赖</h3>
+<p>项目依赖以下第三方库：</p>
+<ul>
+<li><strong>freetype-2.13.0</strong>: 用于字体渲染。</li>
+<li><strong>glew-2.2.0</strong>: OpenGL扩展库，用于加载OpenGL扩展函数。</li>
+<li><strong>glfw-3.4</strong>: 用于创建窗口和处理输入事件。</li>
+<li><strong>glm-1.0.1</strong>: OpenGL数学库，用于矩阵和向量计算。</li>
+<li><strong>gTest</strong>: Google Test框架，用于单元测试。</li>
+<li><strong>stb_image.h</strong>: 用于图像加载。</li>
+<li><strong>stb_image_write.h</strong>: 用于图像保存。</li>
+</ul>
+<h2 id="使用说明">使用说明</h2>
+<h3 id="1-克隆项目">1. 克隆项目</h3>
+<p>首先，克隆项目到本地：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/cfl997/CFLRenderAPI.git
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> CFLRenderAPI
+</span></span></code></pre></div><h3 id="2-配置cmake">2. 配置CMake</h3>
+<p>在项目根目录下创建<code>build</code>文件夹，并配置CMake：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir build
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> build
+</span></span><span style="display:flex;"><span>cmake -DCMAKE_BUILD_TYPE<span style="color:#ff79c6">=</span>Debug ..
+</span></span></code></pre></div><h3 id="3-编译项目">3. 编译项目</h3>
+<p>使用以下命令编译项目：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>make
+</span></span></code></pre></div><h3 id="4-运行示例">4. 运行示例</h3>
+<p>编译完成后，可以在<code>build</code>目录下找到生成的可执行文件。运行GTest程序：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>待做
+</span></span></code></pre></div><h2 id="api-接口">API 接口</h2>
+<h3 id="renderapi-接口">RenderAPI 接口</h3>
+<p><code>RenderAPI</code>模块提供了关于OpenGL的所有接口：</p>
+<ul>
+<li><strong>CFLRenderGL_Init()</strong>: 初始化渲染引擎。</li>
+<li><strong>CFLRenderGL_CreateContext()</strong>: 执行渲染操作。</li>
+<li><strong>CFLRenderGL_ReleaseContext()</strong>: 关闭渲染引擎，释放资源。</li>
+</ul>
+<h2 id="贡献指南">贡献指南</h2>
+<p>我们欢迎任何形式的贡献！如果你有兴趣为CFLRenderAPI项目做出贡献，请遵循以下步骤：</p>
+<ol>
+<li><strong>Fork 项目</strong>: 在GitHub上Fork本项目。</li>
+<li><strong>创建分支</strong>: 创建一个新的分支用于开发。</li>
+<li><strong>提交更改</strong>: 在分支上进行开发，并提交更改。</li>
+<li><strong>创建Pull Request</strong>: 向主仓库提交Pull Request，描述你的更改。</li>
+</ol>
+<h2 id="许可证">许可证</h2>
+<p>CFLRenderAPI 项目采用 <a href="LICENSE">MIT 许可证</a>。</p>
+<h2 id="联系方式">联系方式</h2>
+<p>如果你有任何问题或建议，请通过以下方式联系我们：</p>
+<ul>
+<li><strong>GitHub Issues</strong>: <a href="https://github.com/cfl997/CFLRenderAPI/issues">https://github.com/cfl997/CFLRenderAPI/issues</a></li>
+<li><strong>Email</strong>: <a href="mailto:cfl997@163.com">cfl997@163.com</a></li>
+</ul>
+<hr>
+<p>感谢你对CFLRenderAPI项目的关注与支持！我们期待你的贡献与反馈。</p>
 
 
                 
@@ -300,15 +343,10 @@ url1 = <a href="https://carpt.net/index.php">https://carpt.net/index.php</a></p>
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2025/01/21/smarthome/" data-toggle="tooltip" data-placement="top" title="智能家居">&larr;
+                        <a href="/2025/01/24/webgldynamicpoint/" data-toggle="tooltip" data-placement="top" title="【WebGL】动态点">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/2025/01/23/webglstaticpoint/" data-toggle="tooltip" data-placement="top" title="【WebGL】静态点">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 

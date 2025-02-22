@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WebGL on Caofulei</title>
+    <link>http://cfl997.github.io/tags/webgl/</link>
+    <description>Recent content in WebGL on Caofulei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/tags/webgl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【WebGL】动态点</title>
+      <link>http://cfl997.github.io/2025/01/24/webgldynamicpoint/</link>
+      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://cfl997.github.io/2025/01/24/webgldynamicpoint/</guid>
+      <description>添加鼠标点击事件 绘制位置，pointsize为60 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;script src=&amp;#34;glMatrix-0.9.6.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; class WebGLApp { constructor() { this.vertexString = ` attribute vec3 a_position; uniform mat4 proj; void main(void){ gl_Position = vec4(a_position, 1.0); gl_PointSize = 60.0; } `; this.fragmentString =</description>
+    </item>
+    
+    <item>
+      <title>【WebGL】静态点</title>
+      <link>http://cfl997.github.io/2025/01/23/webglstaticpoint/</link>
+      <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://cfl997.github.io/2025/01/23/webglstaticpoint/</guid>
+      <description>资源glMatrix 官网： https://glmatrix.net/ &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;script src=&amp;#34;glMatrix-0.9.6.min.js&amp;#34;&amp;gt; //加载封好的库 //https://glmatrix.net/ &amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; class WebGLApp { constructor() { this.vertexString = ` attribute vec4 pos; uniform mat4 proj; void main(void){ gl_Position = proj * pos; gl_PointSize = 60.0; } `; this.fragmentString = ` void main(void){</description>
+    </item>
+    
+  </channel>
+</rss>
