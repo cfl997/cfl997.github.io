@@ -1,0 +1,27 @@
+/* Twikoo 头像修复 - 覆盖主题 post-container img 样式 */
+.twikoo .tk-avatar img,
+.twikoo img.tk-avatar-img,
+.twikoo .tk-avatar .tk-avatar-img,
+.twikoo .tk-avatar .tk-avatar-img img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    object-fit: cover !important;
+    vertical-align: middle !important;
+    border-radius: 5px !important;
+}
+
+.twikoo .tk-avatar {
+    display: block !important;
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    flex-shrink: 0 !important;
+    margin-right: 1rem !important;
+    border-radius: 5px !important;
+    overflow: hidden !important;
+    background-color: #90939921 !important;
+}
