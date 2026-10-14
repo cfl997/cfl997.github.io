@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Caofulei</title>
-    <link>http://cfl997.github.io/tags/blog/</link>
+    <link>https://lovezjj.cn/tags/blog/</link>
     <description>Recent content in Blog on Caofulei</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://cfl997.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lovezjj.cn/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NVIDIA OpenGL FramBuffer Bug-glCreateFramebuffers</title>
-      <link>http://cfl997.github.io/2023/12/19/VNDIA/</link>
+      <link>https://lovezjj.cn/2023/12/19/VNDIA/</link>
       <pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://cfl997.github.io/2023/12/19/VNDIA/</guid>
+      <guid>https://lovezjj.cn/2023/12/19/VNDIA/</guid>
       <description>NVIDIA 的OpenGL FramBuffer Bug-glCreateFramebuffers ​ 在做OpenGL开发的时候，遇到了NVIDIA写的bug。 并进行了解决，在NVIDIA官网上进行了反馈。 Framebuffer incomplete when attaching color buffers of</description>
     </item>
     
     <item>
       <title>文档属性</title>
-      <link>http://cfl997.github.io/2023/12/13/document%20attribute/</link>
+      <link>https://lovezjj.cn/2023/12/13/document%20attribute/</link>
       <pubDate>Wed, 13 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://cfl997.github.io/2023/12/13/document%20attribute/</guid>
+      <guid>https://lovezjj.cn/2023/12/13/document%20attribute/</guid>
       <description>#文档属性 layout：指定了文档的布局。 title：指定了文档的标题。 subtitle：指定了文档的副标题。 date：指定了文档的日期。 a</description>
     </item>
     
     <item>
       <title>Calculation method of gray value</title>
-      <link>http://cfl997.github.io/2023/12/07/Gray/</link>
+      <link>https://lovezjj.cn/2023/12/07/Gray/</link>
       <pubDate>Thu, 07 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://cfl997.github.io/2023/12/07/Gray/</guid>
+      <guid>https://lovezjj.cn/2023/12/07/Gray/</guid>
       <description>Calculation method of gray value 三种不同计算灰度的方式 ShaderToy https://www.shadertoy.com/view/mlVBRh Code： /* https://www.shadertoy.com/view/mlVBRh Blog：https://blog.lovezjj.cn by cfl997 20231207 */ //Green vec3 GrayByGreen(vec3 color) { return vec3(color.g); } //Gray = R*0.3 + G*0.59</description>
     </item>
     
     <item>
       <title>Mosaic changing by time</title>
-      <link>http://cfl997.github.io/2023/12/06/mosaic/</link>
+      <link>https://lovezjj.cn/2023/12/06/mosaic/</link>
       <pubDate>Wed, 06 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://cfl997.github.io/2023/12/06/mosaic/</guid>
+      <guid>https://lovezjj.cn/2023/12/06/mosaic/</guid>
       <description>Mosaic By Time 随着时间更新马赛克的大小 ShaderToy https://www.shadertoy.com/view/DlKBRh Code： /* https://www.shadertoy.com/view/DlKBRh Blog：https://blog.lovezjj.cn by cfl997 20231206 */ // 定义一个变量 Square，</description>
     </item>
     
