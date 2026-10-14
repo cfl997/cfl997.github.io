@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>glm on Caofulei</title>
-    <link>https://lovezjj.cn:8443/tags/glm/</link>
+    <link>http://lovezjj.cn:8443/tags/glm/</link>
     <description>Recent content in glm on Caofulei</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://lovezjj.cn:8443/tags/glm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://lovezjj.cn:8443/tags/glm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>glm::vec3 Memory Alignment</title>
-      <link>https://lovezjj.cn:8443/2024/01/21/glmvec3MemoryAlignment/</link>
+      <link>http://lovezjj.cn:8443/2024/01/21/glmvec3MemoryAlignment/</link>
       <pubDate>Sun, 21 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://lovezjj.cn:8443/2024/01/21/glmvec3MemoryAlignment/</guid>
+      <guid>http://lovezjj.cn:8443/2024/01/21/glmvec3MemoryAlignment/</guid>
       <description>介绍 在OpenGL编程中，与顶点数据的交互是非常常见的操作。在C++中，通常会使用GLM库提供的数据结构，如glm::vec3，来表示顶点数</description>
     </item>
     

@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cplusplus on Caofulei</title>
-    <link>https://lovezjj.cn:8443/tags/cplusplus/</link>
+    <link>http://lovezjj.cn:8443/tags/cplusplus/</link>
     <description>Recent content in cplusplus on Caofulei</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 02 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://lovezjj.cn:8443/tags/cplusplus/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://lovezjj.cn:8443/tags/cplusplus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CUDA use OpenGL Texture R16 and RGBA EqualizeHistogram</title>
-      <link>https://lovezjj.cn:8443/2024/06/01/CUDA%20OpenGL/</link>
+      <link>http://lovezjj.cn:8443/2024/06/01/CUDA%20OpenGL/</link>
       <pubDate>Sun, 02 Jun 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://lovezjj.cn:8443/2024/06/01/CUDA%20OpenGL/</guid>
+      <guid>http://lovezjj.cn:8443/2024/06/01/CUDA%20OpenGL/</guid>
       <description>cuda和OpenGL纹理结合，并进行直方图计算 针对于单通道16位图像。结合方式在CUDA_equalizeHistogram函数中。 其他的</description>
     </item>
     
     <item>
       <title>Swig CMakeLists</title>
-      <link>https://lovezjj.cn:8443/2024/05/19/Swig%20CMakeLists/</link>
+      <link>http://lovezjj.cn:8443/2024/05/19/Swig%20CMakeLists/</link>
       <pubDate>Sun, 19 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://lovezjj.cn:8443/2024/05/19/Swig%20CMakeLists/</guid>
+      <guid>http://lovezjj.cn:8443/2024/05/19/Swig%20CMakeLists/</guid>
       <description>swig转换的cmake配置很乱 没有一个详细的解释。 当将.i文件单独拎出来生成一个单独的dll非常的麻烦。 于是采用最简便的方法。 并且生成的d</description>
     </item>
     
     <item>
       <title>ffmpeg7.0 visual studio 2022 static lib dll</title>
-      <link>https://lovezjj.cn:8443/2024/05/12/ffmpeg7%20visual%20studio%202022%20static%20lib%20dll/</link>
+      <link>http://lovezjj.cn:8443/2024/05/12/ffmpeg7%20visual%20studio%202022%20static%20lib%20dll/</link>
       <pubDate>Sun, 12 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://lovezjj.cn:8443/2024/05/12/ffmpeg7%20visual%20studio%202022%20static%20lib%20dll/</guid>
+      <guid>http://lovezjj.cn:8443/2024/05/12/ffmpeg7%20visual%20studio%202022%20static%20lib%20dll/</guid>
       <description>FFmpeg 7.0 + Visual Studio 2022 静态库编译使用指南 本指南详细介绍了如何在 Windows 环境下使用 Visual Studio 2022 和 FFmpeg 7.0 进行静态库编译，并解决可能遇到的依赖库问题。 1. 环境准备 确保已经安</description>
     </item>
     
     <item>
       <title>ffmpeg7.0 visual studio 2022</title>
-      <link>https://lovezjj.cn:8443/2024/05/1/ffmpeg7%20visual%20studio%202022/</link>
+      <link>http://lovezjj.cn:8443/2024/05/1/ffmpeg7%20visual%20studio%202022/</link>
       <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://lovezjj.cn:8443/2024/05/1/ffmpeg7%20visual%20studio%202022/</guid>
+      <guid>http://lovezjj.cn:8443/2024/05/1/ffmpeg7%20visual%20studio%202022/</guid>
       <description>后面有总结： 安装msys2 打开 （这一步非常重要不然就得指定vs的环境） x64 Native Tools Command Prompt for VS 2022 运行 在x64 Native Tools Command Prompt for VS 2022命令行中切换到msys</description>
     </item>
     
     <item>
       <title>glm::vec3 Memory Alignment</title>
-      <link>https://lovezjj.cn:8443/2024/01/21/glmvec3MemoryAlignment/</link>
+      <link>http://lovezjj.cn:8443/2024/01/21/glmvec3MemoryAlignment/</link>
       <pubDate>Sun, 21 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://lovezjj.cn:8443/2024/01/21/glmvec3MemoryAlignment/</guid>
+      <guid>http://lovezjj.cn:8443/2024/01/21/glmvec3MemoryAlignment/</guid>
       <description>介绍 在OpenGL编程中，与顶点数据的交互是非常常见的操作。在C++中，通常会使用GLM库提供的数据结构，如glm::vec3，来表示顶点数</description>
     </item>
     
     <item>
       <title>NVIDIA OpenGL FramBuffer Bug-glCreateFramebuffers</title>
-      <link>https://lovezjj.cn:8443/2023/12/19/VNDIA/</link>
+      <link>http://lovezjj.cn:8443/2023/12/19/VNDIA/</link>
       <pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lovezjj.cn:8443/2023/12/19/VNDIA/</guid>
+      <guid>http://lovezjj.cn:8443/2023/12/19/VNDIA/</guid>
       <description>NVIDIA 的OpenGL FramBuffer Bug-glCreateFramebuffers ​ 在做OpenGL开发的时候，遇到了NVIDIA写的bug。 并进行了解决，在NVIDIA官网上进行了反馈。 Framebuffer incomplete when attaching color buffers of</description>
     </item>
     
     <item>
       <title>Calculation method of gray value</title>
-      <link>https://lovezjj.cn:8443/2023/12/07/Gray/</link>
+      <link>http://lovezjj.cn:8443/2023/12/07/Gray/</link>
       <pubDate>Thu, 07 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lovezjj.cn:8443/2023/12/07/Gray/</guid>
+      <guid>http://lovezjj.cn:8443/2023/12/07/Gray/</guid>
       <description>Calculation method of gray value 三种不同计算灰度的方式 ShaderToy https://www.shadertoy.com/view/mlVBRh Code： /* https://www.shadertoy.com/view/mlVBRh Blog：https://blog.lovezjj.cn by cfl997 20231207 */ //Green vec3 GrayByGreen(vec3 color) { return vec3(color.g); } //Gray = R*0.3 + G*0.59</description>
     </item>
     
     <item>
       <title>Mosaic changing by time</title>
-      <link>https://lovezjj.cn:8443/2023/12/06/mosaic/</link>
+      <link>http://lovezjj.cn:8443/2023/12/06/mosaic/</link>
       <pubDate>Wed, 06 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lovezjj.cn:8443/2023/12/06/mosaic/</guid>
+      <guid>http://lovezjj.cn:8443/2023/12/06/mosaic/</guid>
       <description>Mosaic By Time 随着时间更新马赛克的大小 ShaderToy https://www.shadertoy.com/view/DlKBRh Code： /* https://www.shadertoy.com/view/DlKBRh Blog：https://blog.lovezjj.cn by cfl997 20231206 */ // 定义一个变量 Square，</description>
     </item>
     
